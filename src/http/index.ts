@@ -54,7 +54,7 @@ export type RequesterConfig = {
    * Configure the cache behaviour
    * @default "no-store"
    */
-  cache?: CacheSetting;
+  // cache?: CacheSetting;
 };
 
 export type HttpClientConfig = {
@@ -69,7 +69,7 @@ export class HttpClient implements Requester {
   public headers: Record<string, string>;
   public readonly options: {
     signal?: AbortSignal;
-    cache?: CacheSetting;
+    // cache?: CacheSetting;
   };
 
   public readonly retry: {
@@ -79,7 +79,7 @@ export class HttpClient implements Requester {
 
   public constructor(config: HttpClientConfig) {
     this.options = {
-      cache: config.cache,
+      // cache: config.cache,
       signal: config.signal,
     };
 
@@ -105,7 +105,7 @@ export class HttpClient implements Requester {
 
   public async request<TResult>(req: UpstashRequest): Promise<UpstashResponse<TResult>> {
     const requestOptions = {
-      cache: this.options.cache,
+      // cache: this.options.cache,
       method: "POST",
       headers: this.headers,
       body: JSON.stringify(req.body),
